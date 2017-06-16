@@ -1,0 +1,54 @@
+{
+  "name": "packages-aggregator",
+  "version": "1.0.6",
+  "description": "",
+  "main": "lib/index.js",
+  "bin" : {
+    "packages-aggregator" : "lib/bin.js"
+  },
+  "scripts": {
+    "lint": "gulp lint",
+    "compile": "NODE_ENV=production babel src --out-dir lib && echo 'Successfully compiled'",
+    "prepublish": "npm test && npm run lint && npm run compile",
+    "ci": "npm run lint && npm run compile && npm test"
+  },
+  "author": "Adam Bisek <adam.bisek@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.4.1",
+    "chalk": "^1.1.3",
+    "command-line-args": "^4.0.6",
+    "decompress": "^4.2.0",
+    "glob": "^7.1.2",
+    "request": "^2.81.0",
+    "shelljs": "^0.7.8"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.21.0",
+    "babel-eslint": "^7.2.1",
+    "babel-jest": "^19.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "eslint": "^3.12.2",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.8.0",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^3.0.1",
+    "jest": "^19.0.2"
+  },
+  "jest": {
+    "verbose": true,
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!gulpfile.babel.js",
+      "!**/lib/**",
+      "!**/node_modules/**",
+      "!**/coverage/**"
+    ]
+  },
+  "false": {}
+}
